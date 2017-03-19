@@ -67,7 +67,7 @@
 ## About
 
 - Small & lightweight([less than 80 lines of code](index.js)).
-- Colorized output that works in node & browser.
+- Colorized output that works in node & modern browsers.
 - 6 Log levels(`trace`, `debug`, `info`, `warn`, `error` and `fatal`).
 - No Dependencies.
 

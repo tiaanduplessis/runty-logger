@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Lightweight unoriginal logger",
   "license": "MIT",
-  "main": "dist/runty-logger.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/tiaanduplessis/runty-logger.git"
@@ -23,10 +23,7 @@
     "coverage": "npm test -- --coverage",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "build": "rollup -cm -n createLogger -f umd -i index.js -o dist/runty-logger.js",
-    "precommit": "npm test",
-    "prepublish": "npm run build",
-    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+    "precommit": "npm test"
   },
   "keywords": [
     "logger",
@@ -37,18 +34,11 @@
     "runty-logger"
   ],
   "files": [
-    "index.js",
-    "dist"
+    "index.js"
   ],
   "devDependencies": {
     "husky": "^0.13.2",
     "jest": "^19.0.2",
-    "rollup": "^0.41.6",
     "standard": "^9.0.0"
-  },
-  "standard": {
-    "ignore": [
-      "dist"
-    ]
   }
 }

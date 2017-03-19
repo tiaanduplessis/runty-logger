@@ -1,6 +1,6 @@
 'use strict'
 
-const isNode = typeof process === 'object'
+const isNode = Object.prototype.toString.call(typeof process !== 'undefined' ? process : 0) === '[object process]'
 
 const levels = {
   trace: {
@@ -59,7 +59,7 @@ function createLogger (options = {}) {
         const output = `${symbol} ${getTimeStamp()} ${outputName}${color} - ${color}`
         console.log(output, level, message, data)
       } else {
-        const output = `${symbol} ${getTimeStamp()} ${outputName}%c${level} %c- %c${message}`
+        const output = `${getTimeStamp()} ${outputName}%c${level} %c- %c${message}`
         console.log(output, color, '', color, data)
       }
     }
@@ -75,4 +75,7 @@ function createLogger (options = {}) {
   return logger
 }
 
-module.exports = createLogger
+if (isNode) {
+	module.exports = createLogger
+}
+
