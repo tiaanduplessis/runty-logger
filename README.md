@@ -66,20 +66,17 @@
 
 ## About
 
-- Small & lightweight([less than 80 lines of code](index.js)).
-- Colorized output that works in node & modern browsers.
+- Small & lightweight([less than 85 lines of code](index.js)).
+- Colorized output.
 - 6 Log levels(`trace`, `debug`, `info`, `warn`, `error` and `fatal`).
 - No Dependencies.
+- Returns the value provided for cleaner logging.
 
 ## Install
 
 ```sh
 $ npm install --save runty-logger
-```
-
-Or
-
-```sh
+# OR
 $ yarn add runty-logger
 ```
 
@@ -103,7 +100,7 @@ Will log depending on chosen log level:
 
 ```js
 
-var log = require('runty-logger')({ level: 'info' })
+const log = require('runty-logger')({ level: 'info' })
 
 log.trace('a') // will not do anything
 log.debug('b') // will not do anything
@@ -111,6 +108,28 @@ log.info('c')  // ✨ 13:57:01 info - c
 log.warn('d')  // ⚠️ 13:57:01 warn - d
 log.error('e') // 🚨 13:57:01 error - e
 log.fatal('f') // 💀 13:57:01 fatal - f
+
+```
+
+The logger returns the data provided:
+
+```js
+const log = require('runty-logger')({ level: 'info' })
+
+const someBool = true
+
+if (log.info('Some bool set:', someBool)) {
+	console.log('Ran!')
+}
+// ✨ 23:04:00 info - Some bool set: true
+// Ran!
+
+if (log.trace('Some bool set:', someBool)) {
+	console.log('Ran!')
+}
+
+// Ran!
+
 
 ```
 
