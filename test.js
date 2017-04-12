@@ -1,6 +1,8 @@
 /* eslint-env jest */
 'use strict'
 
+const logger = require('./')
+
 test('passing test', () => {
-  expect(true).toBe(true)
+  expect(logger).toBeDefined()
 })
