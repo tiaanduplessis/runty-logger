@@ -11,5 +11,5 @@ log.fatal('f') // 💀 13:57:01 fatal - f
 
 const someBool = true
 if (log.info('Some bool set:', someBool)) {
-	console.log('Ran!')
+  console.log('Ran!')
 }
