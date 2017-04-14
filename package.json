@@ -3,7 +3,8 @@
   "version": "1.1.0",
   "description": "Lightweight unoriginal logger",
   "license": "MIT",
-  "main": "index.js",
+  "main": "src/index.js",
+  "browser": "browser/runtylogger.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/tiaanduplessis/runty-logger.git"
@@ -16,8 +17,10 @@
     "url": "tiaanduplessis.co.za"
   },
   "scripts": {
-    "start": "npm run dev",
-    "pretest": "npm run lint:fix",
+    "start": "npm run build; npm run build:min",
+    "build": "webpack",
+    "build:min": "WEBPACK_ENV=production webpack -p",
+    "pretest": "npm run lint",
     "test": "jest --env=node",
     "test:watch": "npm test -- --watch",
     "coverage": "npm test -- --coverage",
@@ -33,12 +36,28 @@
     "console.log",
     "runty-logger"
   ],
-  "files": [
-    "index.js"
-  ],
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.3.3",
     "husky": "^0.13.2",
     "jest": "^19.0.2",
-    "standard": "^9.0.0"
+    "standard": "^9.0.0",
+    "webpack": "^2.3.3"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "babel-plugin-add-module-exports"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "browser/**"
+    ]
   }
 }

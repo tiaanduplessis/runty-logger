@@ -1,6 +1,6 @@
 <h1 align="center">🐶 runty-logger</h1>
 <div align="center">
-  <strong>Lightweight unoriginal logger</strong>
+  <strong>Simple unoriginal logger</strong>
 </div>
 <br>
 <div align="center">
@@ -66,8 +66,8 @@
 
 ## About
 
-- Small & lightweight([less than 85 lines of code](index.js)).
 - Colorized output.
+- Works in [node](src/index.js) and [browser](browser/runtyLogger.js).
 - 6 Log levels(`trace`, `debug`, `info`, `warn`, `error` and `fatal`).
 - No Dependencies.
 - Returns the value provided for cleaner logging.
@@ -84,9 +84,9 @@ $ yarn add runty-logger
 
 ```js
 
-const createLogger = require('runty-logger')
+const runtyLogger = require('runty-logger')
 
-const log = createlog({
+const log = runtyLogger({
 	name: 'Foo',
 	level: 'trace'
 })

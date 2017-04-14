@@ -1,4 +1,4 @@
-const createLogger = require('../index')
+const createLogger = require('../src/index')
 
 const log = createLogger()
 
