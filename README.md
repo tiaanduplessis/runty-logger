@@ -66,6 +66,8 @@
 
 ## About
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/runty-logger.svg)](https://greenkeeper.io/)
+
 - Colorized output.
 - Works in [node](src/index.js) and [browser](browser/runtyLogger.js).
 - 6 Log levels(`trace`, `debug`, `info`, `warn`, `error` and `fatal`).
