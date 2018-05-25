@@ -1,32 +1,25 @@
 {
   "name": "runty-logger",
-  "version": "1.1.1",
-  "description": "Lightweight unoriginal logger",
+  "version": "2.0.0",
+  "description": "Pure, lightweight, multi-level, flexible logger",
   "license": "MIT",
-  "main": "src/index.js",
-  "browser": "browser/runtylogger.js",
+  "source": "src/index.js",
+  "main": "dist/runty-logger.js",
+  "browser": "dist/runty-logger.js",
+  "module": "dist/runty-logger.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/tiaanduplessis/runty-logger.git"
   },
   "homepage": "https://github.com/tiaanduplessis/runty-logger",
   "bugs": "https://github.com/tiaanduplessis/runty-logger/issues",
-  "author": {
-    "name": "Tiaan",
-    "email": "tiaanduplessis@hotmail.com",
-    "url": "tiaanduplessis.co.za"
-  },
+  "author": "Tiaan du Plessis",
   "scripts": {
-    "start": "npm run build; npm run build:min",
-    "build": "webpack",
-    "build:min": "WEBPACK_ENV=production webpack -p",
-    "pretest": "npm run lint",
+    "build": "microbundle",
     "test": "jest --env=node",
     "test:watch": "npm test -- --watch",
     "coverage": "npm test -- --coverage",
-    "lint": "standard",
-    "lint:fix": "standard --fix",
-    "precommit": "npm test"
+    "lint": "standard --fix"
   },
   "keywords": [
     "logger",
@@ -34,30 +27,26 @@
     "logging",
     "console",
     "console.log",
-    "runty-logger"
+    "runty-logger",
+    "pure",
+    "lightweight",
+    "multi-level",
+    "colorized"
   ],
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-jest": "^23.0.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.3.3",
-    "husky": "^0.14.3",
-    "jest": "^22.0.0",
-    "standard": "^11.0.0",
-    "webpack": "^4.0.0"
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.0.0",
+    "microbundle": "^0.4.4",
+    "standard": "^11.0.1"
   },
   "babel": {
     "presets": [
       "env"
-    ],
-    "plugins": [
-      "babel-plugin-add-module-exports"
     ]
   },
   "standard": {
     "ignore": [
-      "browser/**"
+      "dist"
     ]
   }
 }
