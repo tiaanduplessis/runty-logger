@@ -20,16 +20,16 @@ const defaultLevels = {
   fatal: 60
 }
 
-function log (level = '', name) {
+function defaultLog (timestamp, level = '', name) {
   const outputName = name && name.length ? `${name} -` : '-'
   return (message, data = '') => {
-    const output = `${getTimeStamp()} ${level.toUpperCase().padEnd(5)} ${outputName}`
+    const output = `${timestamp} ${level.toUpperCase().padEnd(5)} ${outputName}`
     console.log(output, message, data)
     return data || message
   }
 }
 
-function createLogger ({level = 'info', name = '', levels = defaultLevels} = {}) {
+function createLogger ({level = 'info', name = '', levels = defaultLevels, log = defaultLog} = {}) {
   if (!levels[level]) {
     const levelStr = Object.keys(levels).join(', ')
     throw Error(`Invalid log level set. Please select level of ${levelStr}`)
@@ -39,7 +39,7 @@ function createLogger ({level = 'info', name = '', levels = defaultLevels} = {})
 
   for (let current in levels) {
     logger[current] = levels[current] >= levels[level]
-      ? log(current, name)
+      ? log(getTimeStamp(), current, name)
       : identity
   }
 

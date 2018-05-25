@@ -11,6 +11,15 @@ const log = createLogger({
     warn: 40,
     error: 50,
     fatal: 60
+  },
+  // Control how the message is logged
+  log: function defaultLog (timestamp, level = '', name) {
+    const outputName = name && name.length ? `${name} -` : '-'
+    return (message, data = '') => {
+      const output = `${timestamp} ${level.toUpperCase().padEnd(5)} ${outputName}`
+      console.log(output, message, data)
+      return data || message
+    }
   }
 })
 
